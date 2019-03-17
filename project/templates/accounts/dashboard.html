@@ -2,13 +2,150 @@
 
 {% block content %}
 
-<h1 class="title" style="text-align:center;">Hello!</h1>
-<h2 class="subtitle" style="text-align:center;">This is dashboard!</h2>
-<div class="has-text-centered">
-<a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
-<form action="{% url 'logout' %}" method="POST" id="logout">
-    {% csrf_token %}
-    <input type="hidden">
-</form>
+<div class="columns is-multiline">
+
+    <div class="column is-3">
+        <div class="notification is-link has-text">
+            <p class="title is-1">15 </p>
+            <p class="subtitle is-4">новых строк за эту неделю</p>
+        </div>
+    </div>
+
+    <div class="column is-3">
+        <div class="notification is-info has-text">
+            <p class="title is-1">84</p>
+            <p class="subtitle is-4">строки за месяц</p>
+        </div>
+    </div>
+
+    <div class="column is-3">
+        <div class="notification is-primary has-text">
+            <p class="title is-1">4</p>
+            <p class="subtitle is-4">проведения ИК</p>
+        </div>
+    </div>
+
+    <div class="column is-3">
+        <div class="notification is-success has-text">
+            <p class="title is-1">8</p>
+            <p class="subtitle is-4">поводов выпить</p>
+        </div>
+    </div>
+
+    <div class="column is-4">
+        <div class="card">
+            <div class="card-content">
+                <h2 class="title is-4">
+                    Личные задачи
+                </h2>
+                <div class="media">
+                    <div class="media-left">
+                        <p>1</p>
+                    </div>
+                    <div class="media-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada a elit vitae
+                            accumsan.</p>
+                    </div>
+                    <div class="media-right">
+                        <p>3</p>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <p>2</p>
+                    </div>
+                    <div class="media-content">
+                        <p>LFusce vel convallis sapien. Integer aliquet lacinia posuere. In sed suscipit tellus.</p>
+                    </div>
+                    <div class="media-right">
+                        <p>3</p>
+                    </div>
+                </div>
+                <a class="button is-link is-outlined" href="orders.html">Смотреть все</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="column is-4">
+        <div class="card">
+            <div class="card-content">
+                <h2 class="title is-4">
+                    Общие задачи
+                </h2>
+                <div class="media">
+                    <div class="media-left">
+                        <p>1</p>
+                    </div>
+                    <div class="media-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada a elit vitae
+                            accumsan.</p>
+                    </div>
+                    <div class="media-right">
+                        <p>3</p>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <p>2</p>
+                    </div>
+                    <div class="media-content">
+                        <p>Cras non arcu scelerisque, mollis metus vitae, convallis nulla. Duis consequat pharetra ex,
+                            eu condimentum nunc.</p>
+                    </div>
+                    <div class="media-right">
+                        <p>3</p>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <p>3</p>
+                    </div>
+                    <div class="media-content">
+                        <p>Fusce vel convallis sapien. Integer aliquet lacinia posuere. In sed suscipit tellus.</p>
+                    </div>
+                    <div class="media-right">
+                        <p>3</p>
+                    </div>
+                </div>
+                <a class="button is-link is-outlined" href="orders.html">Смотреть все</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="column is-4">
+        <div class="card">
+            <div class="card-content">
+                <h2 class="title is-4">
+                    Новости
+                </h2>
+                <div class="media">
+                    <div class="media-left">
+                        <p>1</p>
+                    </div>
+                    <div class="media-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada a elit vitae
+                            accumsan.</p>
+                    </div>
+                    <div class="media-right">
+                        <p>3</p>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <p>2</p>
+                    </div>
+                    <div class="media-content">
+                        <p>LFusce vel convallis sapien. Integer aliquet lacinia posuere. In sed suscipit tellus.</p>
+                    </div>
+                    <div class="media-right">
+                        <p>3</p>
+                    </div>
+                </div>
+                <a class="button is-link is-outlined" href="orders.html">Смотреть все</a>
+            </div>
+        </div>
+    </div>
+
 </div>
+
 {% endblock %}

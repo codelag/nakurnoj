@@ -2,70 +2,43 @@
 
 {% block content %}
 <div class="container">
+    
     {% for task in tasks %}
-    <article class="media">
+  
+        <article class="media">
 
-        <div class="media-content">
-            <div class="content">
-                <p>
-                    <small><strong>{{ task.cr_date }}</strong></small>
-                    <br>
-                    {{ task.task }}
-                </p>
-            </div>
-        </div>
-
-        <div class="media-right">
-            <nav class="level">
-                <div class="level-left">
-                    <a class="level-item">
-                        <span class="icon has-text-success"><i class="fas fa-lg fa-check"></i></span>
-                    </a>
-                    <a class="level-item">
-                        <span class="icon has-text-warning"><i class="fas fa-lg fa-edit"></i></span>
-                    </a>
-                    <a class="level-item">
-                        <span class="icon has-text-danger"><i class="fas fa-lg fa-trash-alt"></i></span>
-                    </a>
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                        <small><strong>{{ task.cr_date }}</strong></small>
+                        <br>
+                        {% if task.is_check %}
+                        <span class="icon has-text-success"><i class="fas fa-check"></i></span>
+                        <a href="{% url 'check' task.id %}" class="has-text-dark" style="text-decoration:line-through;">{{ task.task }}</a>
+                        {% else %}
+                        <a href="{% url 'check' task.id %}">{{ task.task }}</a>
+                        {% endif %}
+                        
+                    </p>
                 </div>
-            </nav>
-        </div>
+            </div>
 
-    </article>
+            <div class="media-right">
+                <nav class="level">
+                    <div class="level-left">
+                        <a class="level-item" href="{% url 'edit_task' task.id %}">
+                            <span class="icon has-text-info"><i class="fas fa-edit"></i></span>
+                        </a>
+                        <a class="level-item" href="{% url 'delete_task' task.id %}">
+                            <span class="icon has-text-danger"><i class="fas fa-trash-alt"></i></span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+
+        </article>
 
     {% endfor %}
-
-    <article class="media">
-
-        <div class="media-content">
-            <div class="content">
-                <p>
-                    <small><strong>05.04.2019</strong></small>
-                    <br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque
-                    tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-                </p>
-            </div>
-        </div>
-
-        <div class="media-right">
-            <nav class="level">
-                <div class="level-left">
-                    <a class="level-item">
-                        <span class="icon has-text-success"><i class="fas fa-lg fa-check"></i></span>
-                    </a>
-                    <a class="level-item">
-                        <span class="icon has-text-warning"><i class="fas fa-lg fa-edit"></i></span>
-                    </a>
-                    <a class="level-item">
-                        <span class="icon has-text-danger"><i class="fas fa-lg fa-trash-alt"></i></span>
-                    </a>
-                </div>
-            </nav>
-        </div>
-
-    </article>
-
 
 
     <article class="media">

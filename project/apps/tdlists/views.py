@@ -7,7 +7,9 @@ from .models import *
 @login_required(login_url='login')
 def lists(request):
 
-    tasks = Tdlist.objects.order_by('-cr_date')
+    user_id = request.user.id
+
+    tasks = Tdlist.objects.order_by('-cr_date').filter(user_id=user_id)
 
     context = {
         'tasks': tasks
@@ -36,3 +38,53 @@ def add_task(request):
     else:
 
         return redirect('tdlists')
+
+
+@login_required(login_url='login')
+def edit(request, task_id):
+
+    if request.method == 'POST':
+
+        new_value = request.POST['task']
+
+        task = Tdlist.objects.get(pk=task_id)
+
+        task.task = new_value
+
+        task.save()
+
+        return redirect('tdlists')
+
+    else:
+        
+        task = Tdlist.objects.get(pk=task_id)
+
+        context = {
+            'task': task
+        }
+
+        return render(request, 'tdlists/edit.html', context)
+
+
+@login_required(login_url='login')
+def delete(request, task_id):
+
+    task = Tdlist.objects.get(pk=task_id)
+
+    task.delete()
+
+    return redirect('tdlists')
+
+
+@login_required(login_url='login')
+def check(request, task_id):
+
+    task = Tdlist.objects.get(pk=task_id)
+
+    if task.is_check == True:
+        task.is_check = False
+    else:
+        task.is_check = True
+    task.save()
+
+    return redirect('tdlists')
