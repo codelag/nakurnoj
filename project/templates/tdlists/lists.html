@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    {% for task in tasks %}
+    <article class="media">
+
+        <div class="media-content">
+            <div class="content">
+                <p>
+                    <small><strong>{{ task.cr_date }}</strong></small>
+                    <br>
+                    {{ task.task }}
+                </p>
+            </div>
+        </div>
+
+        <div class="media-right">
+            <nav class="level">
+                <div class="level-left">
+                    <a class="level-item">
+                        <span class="icon has-text-success"><i class="fas fa-lg fa-check"></i></span>
+                    </a>
+                    <a class="level-item">
+                        <span class="icon has-text-warning"><i class="fas fa-lg fa-edit"></i></span>
+                    </a>
+                    <a class="level-item">
+                        <span class="icon has-text-danger"><i class="fas fa-lg fa-trash-alt"></i></span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+    </article>
+
+    {% endfor %}
+
+    <article class="media">
+
+        <div class="media-content">
+            <div class="content">
+                <p>
+                    <small><strong>05.04.2019</strong></small>
+                    <br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque
+                    tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                </p>
+            </div>
+        </div>
+
+        <div class="media-right">
+            <nav class="level">
+                <div class="level-left">
+                    <a class="level-item">
+                        <span class="icon has-text-success"><i class="fas fa-lg fa-check"></i></span>
+                    </a>
+                    <a class="level-item">
+                        <span class="icon has-text-warning"><i class="fas fa-lg fa-edit"></i></span>
+                    </a>
+                    <a class="level-item">
+                        <span class="icon has-text-danger"><i class="fas fa-lg fa-trash-alt"></i></span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+    </article>
+
+
+
+    <article class="media">
+        <div class="media-content">
+            <form action="{% url 'add_task' %}" method="POST">{% csrf_token %}
+                <input type="hidden" name="user_id" value="{{ user.id }}">
+                <div class="field">
+                    <p class="control">
+                        <textarea class="textarea" placeholder="Добавить задачу..." name="task"></textarea>
+                    </p>
+                </div>
+                <nav class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <button class="button is-info" type="Submit">Добавить</button>
+                        </div>
+                    </div>
+                </nav>
+            </form>
+        </div>
+    </article>
+
+</div>
+
+
+
+
+{% endblock %}

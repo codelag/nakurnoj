@@ -1,0 +1,117 @@
+{% load static %}
+<nav class="navbar has-shadow">
+    <div class="navbar-menu">
+        <div class="navbar-start">
+
+            <a class="navbar-item">
+                <img src="{% static 'img/reglogo.png' %}" width="100" height="50" alt="Bulma">
+            </a>
+
+            <!-- Projects -->
+            <a class="navbar-item">
+                База
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <div class="navbar-link">
+                    Журналы
+                </div>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="{% url 'dashboard' %}">
+                        <div>
+                            &#8195;Сертификаты ТР ТС
+                        </div>
+                    </a>
+                    <a class="navbar-item" href="{% url 'dashboard' %}">
+                        <div>
+                            &#8195;Декларации ТР ТС
+                        </div>
+                    </a>
+                    <a class="navbar-item" href="{% url 'dashboard' %}">
+                        <div>
+                            &#8195;Сертификаты ГОСТ Р
+                        </div>
+                    </a>
+                    <a class="navbar-item" href="{% url 'dashboard' %}">
+                        <div>
+                            &#8195;Декларации ГОСТ Р
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <a class="navbar-item">
+                ИК
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                    <div class="navbar-link">
+                        Справочник
+                    </div>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="{% url 'dashboard' %}">
+                            <div>
+                                &#8195;Клиенты
+                            </div>
+                        </a>
+                        <a class="navbar-item" href="{% url 'dashboard' %}">
+                            <div>
+                                &#8195;Заявители
+                            </div>
+                        </a>
+                        <a class="navbar-item" href="{% url 'dashboard' %}">
+                            <div>
+                                &#8195;Платильщики
+                            </div>
+                        </a>
+                        <a class="navbar-item" href="{% url 'dashboard' %}">
+                            <div>
+                                &#8195;Еще что-то
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+                <div class="navbar-link">
+                    {{ user.first_name }} {{ user.last_name }}
+                </div>
+                <div class="navbar-dropdown is-right">
+                    <a class="navbar-item" href="{% url 'dashboard' %}">
+                        <div>
+                            <span class="icon is-small">
+                                <i class="fas fa-chart-line"></i>
+                            </span>
+                            &#8195;Сводка
+                        </div>
+                    </a>
+                    <a class="navbar-item" href="{% url 'tdlists' %}">
+                        <div>
+                            <span class="icon is-small">
+                                <i class="fas fa-tasks"></i>
+                            </span>
+                            &#8195;Задачи
+                        </div>
+                    </a>
+                    <a class="navbar-item">
+                        <div>
+                            <span class="icon is-small">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            &#8195;Профиль
+                        </div>
+                    </a>
+                    <hr class="navbar-divider">
+                    <a class="navbar-item" href="javascript:{document.getElementById('logout').submit()}">
+                        <form action="{% url 'logout' %}" method="POST" id="logout">{% csrf_token %}<input
+                                type="hidden"></form>
+                        <div><span class="icon is-small"><i class="fas fa-sign-out-alt"></i></span>&#8195;Выйти</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

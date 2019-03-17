@@ -2,7 +2,13 @@
 
 {% block content %}
 
-    <h1 class="title" style="text-align:center;">Hello!</h1>
-    <h2 class="subtitle" style="text-align:center;">This is dashboard!</h2>
-
+<h1 class="title" style="text-align:center;">Hello!</h1>
+<h2 class="subtitle" style="text-align:center;">This is dashboard!</h2>
+<div class="has-text-centered">
+<a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+<form action="{% url 'logout' %}" method="POST" id="logout">
+    {% csrf_token %}
+    <input type="hidden">
+</form>
+</div>
 {% endblock %}
