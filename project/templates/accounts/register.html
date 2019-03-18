@@ -24,6 +24,22 @@
                                 {% csrf_token %}
                                 <div class="field">
                                     <p class="control has-icons-left">
+                                        <input class="input" type="text" placeholder="Имя" name="first_name" required>
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-th-list"></i>
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="field">
+                                    <p class="control has-icons-left">
+                                        <input class="input" type="text" placeholder="Фамилия" name="last_name" required>
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-th-list"></i>
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="field">
+                                    <p class="control has-icons-left">
                                         <input class="input" type="text" placeholder="логин" name="username" required>
                                         <span class="icon is-small is-left">
                                             <i class="fas fa-user"></i>
@@ -33,6 +49,14 @@
                                 <div class="field">
                                     <p class="control has-icons-left">
                                         <input class="input" type="password" placeholder="пароль" name="password" required>
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="field">
+                                    <p class="control has-icons-left">
+                                        <input class="input" type="password" placeholder="повторите пароль" name="password2" required>
                                         <span class="icon is-small is-left">
                                             <i class="fas fa-lock"></i>
                                         </span>

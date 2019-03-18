@@ -8,9 +8,11 @@ from django.contrib.auth.models import User
 def login(request):
 
     if request.method == 'POST':
+
         username = request.POST['username']
         password = request.POST['password']
         user = auth.authenticate(username=username, password=password)
+
         if user is not None:
             auth.login(request, user)
             return redirect('dashboard')
@@ -21,7 +23,32 @@ def login(request):
 
 
 def register(request):
-    return render(request, 'accounts/register.html')
+
+    if request.method == 'POST':
+
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        username = request.POST['username']
+        password = request.POST['password']
+        password2 = request.POST['password2']
+
+        if password == password2:
+
+            if User.objects.filter(username=username).exists():
+                return redirect('register')
+            else:
+                user = User.objects.create_user(
+                    username=username,
+                    password=password,
+                    first_name=first_name,
+                    last_name=last_name,
+                )
+                user.save()
+                return redirect('login')
+        else:
+            return redirect('register')
+    else:
+        return render(request, 'accounts/register.html')
 
 
 @login_required(login_url='login')
