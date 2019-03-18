@@ -1,0 +1,26 @@
+# Клиенты
+
+# Заявители
+
+# Клиенты
+
+# Клиенты
+# Клиенты
+
+
+
+# Проекты
+id              pk, ai
+number
+date
+client_id
+declarant_id
+goods
+tnved
+schema
+factory_id
+
+
+create_date
+edit_date
+
