@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    
+    {% for client in clients %}
+  
+        <article class="media">
+
+            <div class="media-content">
+                <div class="content">
+                    <p>
+
+                        <a href="{% url 'check' task.id %}">{{ client.company_name }}</a>
+
+                    </p>
+                </div>
+            </div>
+
+            <div class="media-right">
+                <nav class="level">
+                    <div class="level-left">
+                        <a class="level-item" href="{% url 'edit_task' task.id %}">
+                            <span class="icon has-text-info"><i class="fas fa-edit"></i></span>
+                        </a>
+                        <a class="level-item" href="{% url 'delete_task' task.id %}">
+                            <span class="icon has-text-danger"><i class="fas fa-trash-alt"></i></span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+
+        </article>
+
+    {% endfor %}
+
+
+    <!-- <article class="media">
+        <div class="media-content">
+            <form action="{% url 'add_task' %}" method="POST">{% csrf_token %}
+                <input type="hidden" name="user_id" value="{{ user.id }}">
+                <div class="field">
+                    <p class="control">
+                        <textarea class="textarea" placeholder="Добавить задачу..." name="task"></textarea>
+                    </p>
+                </div>
+                <nav class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <button class="button is-info" type="Submit">Добавить</button>
+                        </div>
+                    </div>
+                </nav>
+            </form>
+        </div>
+    </article> -->
+
+</div>
+
+
+
+
+{% endblock %}
